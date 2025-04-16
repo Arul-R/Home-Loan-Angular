@@ -1,0 +1,22 @@
+<div class="Calc-container">
+    <H1>Home loan calculator</H1>
+    <div class="form-group">
+        <label>Principle Amount (INR)</label>
+        <input type="number" [ngModel]="principal()" (ngModelChange)="principal.set($event)" placeholder="Enter principal">
+    </div>
+    <div class="form-group">
+        <label>Interest Rate (p/a)</label>
+        <input type="number" [ngModel]="interestRate()" (ngModelChange)="interestRate.set($event)" placeholder="Enter interest Rate">
+    </div>
+    <div class="form-group">
+        <label>Loan Tenure</label>
+        <input type="number" [ngModel]="loanTenure()" (ngModelChange)="loanTenure.set($event)" step="1" placeholder="Enter Loan Tenure">
+    </div>
+    <button (click)="calculateHL()">Calculate</button>
+</div>
+
+<div class="result">
+    @if(emi() !== null){
+        <h2>EMI: Rs.{{emi()}}</h2>
+    }
+</div>
